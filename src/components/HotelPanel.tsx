@@ -2,14 +2,14 @@ import HotelCard from "./hotelCard";
 
 export default function HotelPanel() {
     return (
-        <div className="p-[10px]">
-            <div className="m-[20px] flex flex-row flex-wrap justify-around content-around">
-                <HotelCard/>
-                <HotelCard/>
-                <HotelCard/>
-                <HotelCard/>
-                <HotelCard/>
-                <HotelCard/>
+        <div className="px-10 py-5">
+            <div className="grid grid-cols-3 gap-10">
+                <HotelCard hotelName="Hotel name" location="Location"/>
+                <HotelCard hotelName="Hotel name" location="Location"/>
+                <HotelCard hotelName="Hotel name" location="Location"/>
+                <HotelCard hotelName="Hotel name" location="Location"/>
+                <HotelCard hotelName="Hotel name" location="Location"/>
+                <HotelCard hotelName="Hotel name" location="Location"/>
             </div>
         </div>
     );
