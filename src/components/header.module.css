@@ -1,0 +1,8 @@
+.headerText {
+    top: 200px;
+    z-index: 20;
+    text-align: center;
+    width: 100vw;
+    height: 20vh;
+    margin: auto;
+ }
