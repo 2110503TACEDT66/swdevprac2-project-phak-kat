@@ -1,5 +1,5 @@
-export default function LogInTextField({id, lable, pText}:
-    {id: string ,lable: string, pText: string}) {
+export default function LogInTextField({id, lable, pText, disable}:
+    {id: string ,lable: string, pText: string, disable: boolean}) {
         return (
             <div className="w-full">
                 <label htmlFor={id} 
@@ -10,10 +10,11 @@ export default function LogInTextField({id, lable, pText}:
                 <input type="text" 
                 id={id}
                 placeholder={pText}
-                className="bg-amber-50 border border-gray-300 
-                text-neutral-800 text-sm font-sans
-                rounded-md focus:border-neutral-800
-                block w-full p-2.5"
+                className="bg-white border border-gray-300 
+                text-neutral-900 text-sm font-sans
+                rounded-md block w-full p-2.5
+                disabled:bg-neutral-100"
+                disabled={disable}
                 />
             </div>
         );
