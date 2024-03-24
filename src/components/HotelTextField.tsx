@@ -1,13 +1,13 @@
-export default function LogInTextField({id, lable, pText, disable}:
-    {id: string ,lable: string, pText: string, disable: boolean}) {
+export default function LogInTextField({id, lable, pText, disable, type}:
+    {id: string ,lable: string, pText: string, disable: boolean, type: string}) {
         return (
             <div className="w-full">
                 <label htmlFor={id} 
                 className="block mb-1 
-                text-sm font-medium text-neutral-800 font-sans">
+                text-md font-medium text-neutral-800 font-sans">
                     {lable}
                 </label>
-                <input type="text" 
+                <input type={type} 
                 id={id}
                 placeholder={pText}
                 className="bg-white border border-gray-300 

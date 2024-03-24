@@ -3,10 +3,11 @@ export default function LogInButton({buttonText}: {buttonText:string}) {
         <div className='w-full'>
             <input type="submit"
             value={buttonText}
-            className="px-5 py-1.5 
-            rounded-full bg-stone-700 shadow-lg
-            text-white text-md font-sans font-medium
-            hover:bg-stone-400"
+            className="px-6 py-2 
+            rounded-full bg-neutral-800 shadow-lg
+            text-white text-md font-sans font-normal
+            transition ease-in-out delay-150 duration-300 
+            hover:scale-105 hover:text-md"
             />
         </div>
     );
