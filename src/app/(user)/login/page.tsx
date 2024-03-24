@@ -19,7 +19,7 @@ export default function LogIn() {
             <div className='text-sm font-medium text-neutral-800 font-sans
             flex flex-row space-x-2 justify-end mt-2'>
               <h6>Don't have an account?</h6>
-              <Link href={'/signup'} className="underline">
+              <Link href={'/signup'} className="underline hover:italic">
                 Sign Up
               </Link>
             </div>
