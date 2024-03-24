@@ -4,7 +4,8 @@ import Link from "next/link";
 export default function BookingCard({params} : {params:{id:string}}) {
     return (
         <div className="h-48 w-3/4 mx-auto flex flex-row
-        font-sans bg-neutral-100 rounded-lg">
+        font-sans bg-neutral-100 rounded-lg shadow-md
+        hover:shadow-lg transition ease-in-out delay-150 duration-300 hover:scale-105">
             <Image src={ '/img/test.jpg' } alt={params.id}
                 width={0} height={0} sizes="100vw"
                 className="rounded-lg w-2/5 h-full object-none object-center"/>
