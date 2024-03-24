@@ -54,7 +54,7 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                             <div className="text-md font-medium text-neutral-800 top-0">{ hotel.data.address +' '+ hotel.data.province}</div>
                         </div>
                         <p className="text-sm font-normal text-neutral-800">
-                            {'Lorem ipsum dolor sit amet, consectetur adipiscing elit onsectetur adipiscing elit'}
+                            { hotel.data.description}
                         </p>
                     </div>
                     <Link href='/book'
