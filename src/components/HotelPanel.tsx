@@ -1,4 +1,4 @@
-import HotelCard from "./hotelCard";
+import HotelCard from "./HotelCard";
 
 export default function HotelPanel() {
     return (

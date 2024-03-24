@@ -1,6 +1,5 @@
 import HotelPanel from '@/components/HotelPanel'
-import LogInTextField from '@/components/TextField'
-import HotelCard from '@/components/hotelCard'
+import HotelCard from '@/components/HotelCard'
 import Image from 'next/image'
 
 export default function Home() {
