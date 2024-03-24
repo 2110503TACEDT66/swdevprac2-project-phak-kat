@@ -35,22 +35,22 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
             <div className="flex flex-row space-x-60">
                 <div className="flex flex-col space-y-3">
                     <div className="flex flex-row space-x-3">
-                        <i style={{'font-size':'20px'}} className="fi fi-ss-circle-phone "></i>
+                        <i style={{fontSize:'20px'}} className="fi fi-ss-circle-phone "></i>
                         <div className="text-md font-medium text-neutral-800 top-0">{ hotel.data.tel }</div>
                     </div>
                     <div className="flex flex-row space-x-3">
-                        <i style={{'font-size':'20px'}} className="fi fi-sr-users-alt"></i>
+                        <i style={{fontSize:'20px'}} className="fi fi-sr-users-alt"></i>
                         <div className="text-md font-medium text-neutral-800 top-0">{ hotel.data.capacityPerRoom } per room</div>
                     </div>
                     <div className="flex flex-row space-x-3">
-                        <i style={{'font-size':'20px'}} className="fi fi fi-sr-sack-dollar"></i>
+                        <i style={{fontSize:'20px'}} className="fi fi fi-sr-sack-dollar"></i>
                         <div className="text-md font-medium text-neutral-800 top-0">{ hotel.data.price } ฿</div>
                     </div>
                 </div>
                 <div className="flex flex-col space-y-5 w-96">
                     <div className="flex flex-col space-y-0.5">
                         <div className="flex flex-row space-x-3">
-                            <i style={{'font-size':'20px'}} className="fi fi-sr-map-marker"></i>
+                            <i style={{fontSize:'20px'}} className="fi fi-sr-map-marker"></i>
                             <div className="text-md font-medium text-neutral-800 top-0">{ hotel.data.address +' '+ hotel.data.province}</div>
                         </div>
                         <p className="text-sm font-normal text-neutral-800">
