@@ -1,6 +1,6 @@
 import BookingForm from '@/components/BookingForm';
 
-export default function Book() {
+export default function Book({params}: {params: {hid: string}}) {
     return (
       <main className="w-full flex flex-col justify-center">
         <h1 className='mx-auto my-12 text-3xl font-sans font-bold

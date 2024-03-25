@@ -11,7 +11,7 @@ export default async function HotelPanel({hotelsJson} : {hotelsJson:HotelJson}) 
                 {
                     hotels.data.map((hotelItem:HotelItem) => (
                         <Link href={`/${hotelItem._id}`} key={hotelItem._id}>
-                        <HotelCard hotelName={hotelItem.name} location={hotelItem.province}/>
+                        <HotelCard hotelItem={hotelItem} />
                         </Link>
                     ))
                 }
