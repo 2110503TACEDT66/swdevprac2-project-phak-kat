@@ -57,9 +57,9 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                             { hotel.data.description}
                         </p>
                     </div>
-                    <div className="ml-auto flex flex-row space-x-4">
+                    <div className="flex flex-row space-x-4">
                         <Link href={`/book/${params.hid}`}
-                        className="px-6 py-1.5 max-w-28 ml-auto text-center
+                        className="px-6 py-1.5 max-w-28 text-center
                         rounded-full bg-neutral-800 shadow-lg
                         text-white text-md font-sans font-normal
                         transition ease-in-out delay-150 duration-300 
@@ -67,7 +67,7 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                             book
                         </Link>
                         <Link href={`/${params.hid}/edit`}
-                        className="px-6 py-1.5 max-w-28 ml-auto text-center
+                        className="px-6 py-1.5 max-w-28 text-center
                         rounded-full bg-neutral-800 shadow-lg
                         text-white text-md font-sans font-normal
                         transition ease-in-out delay-150 duration-300 
