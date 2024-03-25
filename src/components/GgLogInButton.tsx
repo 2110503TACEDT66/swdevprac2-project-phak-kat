@@ -13,7 +13,7 @@ export default function GgLogInButton() {
             onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                router.push('http://localhost:5000/api/v1/auth/google');
+                router.push('https://hotel-backend-beta.vercel.app/api/v1/auth/google');
             }}>
                 <div className="relative flex flex-row items-center space-x-4 justify-center">
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg"
