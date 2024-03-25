@@ -20,6 +20,7 @@
     "@types/react-dom": "18.2.19",
     "dayjs": "^1.11.10",
     "next": "^14.2.0-canary.41",
+    "next-auth": "^4.23.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.3.3"
