@@ -1,5 +1,5 @@
-export default function LogInTextField({id, lable, pText, disable, type}:
-    {id: string ,lable: string, pText: string, disable: boolean, type: string}) {
+export default function LogInTextField({id, lable, pText, disable, type, value}:
+    {id: string ,lable: string, pText: string, disable: boolean, type: string, value: string}) {
         return (
             <div className="w-full">
                 <label htmlFor={id} 
@@ -15,6 +15,7 @@ export default function LogInTextField({id, lable, pText, disable, type}:
                 rounded-md block w-full p-2.5
                 disabled:bg-neutral-100"
                 disabled={disable}
+                value={value}
                 />
             </div>
         );

@@ -57,14 +57,27 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                             { hotel.data.description}
                         </p>
                     </div>
-                    <Link href={`/book/${params.hid}`}
-                    className="px-6 py-1.5 max-w-28 ml-auto text-center
-                    rounded-full bg-neutral-800 shadow-lg
-                    text-white text-md font-sans font-normal
-                    transition ease-in-out delay-150 duration-300 
-                    hover:scale-105 hover:text-md">
-                        book
-                    </Link>
+                    <div className="ml-auto flex flex-row space-x-4">
+                        <Link href={`/book/${params.hid}`}
+                        className="px-6 py-1.5 max-w-28 ml-auto text-center
+                        rounded-full bg-neutral-800 shadow-lg
+                        text-white text-md font-sans font-normal
+                        transition ease-in-out delay-150 duration-300 
+                        hover:scale-105 hover:text-md">
+                            book
+                        </Link>
+                        <Link href={`/${params.hid}/edit`}
+                        className="px-6 py-1.5 max-w-28 ml-auto text-center
+                        rounded-full bg-neutral-800 shadow-lg
+                        text-white text-md font-sans font-normal
+                        transition ease-in-out delay-150 duration-300 
+                        hover:scale-105 hover:text-md">
+                            <div className="flex flex-row space-x-3">
+                                <i style={{'font-size':'18px'}} className="fi fi-sr-file-edit"></i>
+                                <div className="text-md font-semibold text-neutral-100 top-0">edit</div>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
             </div>              
         </main>
