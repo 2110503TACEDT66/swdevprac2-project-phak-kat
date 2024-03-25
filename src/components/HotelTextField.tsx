@@ -1,5 +1,9 @@
-export default function LogInTextField({id, lable, pText, disable, type, value}:
-    {id: string ,lable: string, pText: string, disable: boolean, type: string, value: string}) {
+'use client';
+import React, { useState } from 'react';
+
+export default function LogInTextField({id, lable, pText, disable, type, value, }:
+    {id: string ,lable: string, pText: string, disable: boolean, type: string, value: string, }) {
+        const [textValue, setTextValue] = useState(value);
         return (
             <div className="w-full">
                 <label htmlFor={id} 
@@ -15,7 +19,8 @@ export default function LogInTextField({id, lable, pText, disable, type, value}:
                 rounded-md block w-full p-2.5
                 disabled:bg-neutral-100"
                 disabled={disable}
-                value={value}
+                value={textValue}
+                onChange={(e) => setTextValue(e.target.value)}
                 />
             </div>
         );
