@@ -1,6 +1,7 @@
 import HotelTextField from '@/components/HotelTextField'
 import LogInButton from "@/components/LogInButton";
 import getHotel from '@/libs/getHotel';
+import Link from 'next/link';
 
 export default async function EditHotel({params} : {params:{hid:string}}) {
     
@@ -27,7 +28,9 @@ export default async function EditHotel({params} : {params:{hid:string}}) {
                 </div>
                 
                 <div className="mx-auto">
-                    <LogInButton buttonText="edit"/>
+                    <Link href={`/${params.hid}`}>
+                        <LogInButton buttonText="edit"/>
+                    </Link>
                 </div>
 
             </form>
