@@ -1,11 +1,20 @@
+'use client'
+import { useRouter } from "next/navigation";
+
 export default function GgLogInButton() {
+    const router = useRouter();
     return (
         <div>
             <div className="w-full px-6">
             <button className="h-12 px-6 py-auto
             border-2 border-gray-300 rounded-full 
             transition ease-in-out delay-150 duration-300 
-            hover:border-neutral-700  hover:scale-105">
+            hover:border-neutral-700  hover:scale-105"
+            onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                router.push('http://localhost:5000/api/v1/auth/google');
+            }}>
                 <div className="relative flex flex-row items-center space-x-4 justify-center">
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg"
                     className="relative w-5" alt="google logo"/>
