@@ -14,4 +14,4 @@ export default function MyBooking() {
         </div>
       </main>
     );
-  }
+}
