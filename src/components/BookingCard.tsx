@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function BookingCard({params} : {params:{id:string}}) {
+
+    
     return (
         <div className="h-48 w-3/4 mx-auto flex flex-row
         font-sans bg-neutral-100 rounded-lg shadow-md
