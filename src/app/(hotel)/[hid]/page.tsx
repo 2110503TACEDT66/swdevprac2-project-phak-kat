@@ -57,7 +57,7 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                             { hotel.data.description}
                         </p>
                     </div>
-                    <Link href='/book'
+                    <Link href={`/book/${params.hid}`}
                     className="px-6 py-1.5 max-w-28 ml-auto text-center
                     rounded-full bg-neutral-800 shadow-lg
                     text-white text-md font-sans font-normal
