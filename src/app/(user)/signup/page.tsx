@@ -13,10 +13,10 @@ export default function SignUp() {
         <form className="w-full flex flex-col justify-center space-y-6">
           <div className="w-1/2 mx-auto">
             <div className="space-y-4">
-              <HotelTextField value='' type='text' id="name" pText='name' lable='name' disable={false}/>
-              <HotelTextField value='' type='text' id="email" pText='email' lable='email' disable={false}/>
-              <HotelTextField value='' type='password' id="password" pText='password' lable='password' disable={false}/>
-              <HotelTextField value='' type='text' id="tel" pText='0xx-xxxxxxx' lable='phone number' disable={false}/>
+              <HotelTextField value='' type='text' id="name" pText='name' label='name' disable={false}/>
+              <HotelTextField value='' type='text' id="email" pText='email' label='email' disable={false}/>
+              <HotelTextField value='' type='password' id="password" pText='password' label='password' disable={false}/>
+              <HotelTextField value='' type='text' id="tel" pText='0xx-xxxxxxx' label='phone number' disable={false}/>
             </div>
             <div className='text-sm font-medium text-neutral-800 font-sans
             flex flex-row space-x-2 justify-end mt-2'>
