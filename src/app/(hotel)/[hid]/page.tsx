@@ -1,5 +1,6 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import getHotel from "@/libs/getHotel";
+import getUserProfile from "@/libs/getUserProfile";
 import { Rating } from "@mui/material";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
@@ -7,8 +8,14 @@ import Link from "next/link";
 
 export default async function HotelDetail({params} : {params:{hid:string}}) {
     
+    if (params.hid == 'favicon.ico') return null
     const hotel = await getHotel(params.hid)
     const session = await getServerSession(authOptions)
+    var isAdmin = false
+    if (session != null) {
+        const profile = await getUserProfile(session.user.token);
+        if (profile.data.role == 'admin') isAdmin = true
+    }
     
     return (
         <main className="p-12 font-sans flex flex-col space-y-5">
@@ -70,7 +77,7 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                             book
                         </Link>
                         {
-                            session?.user.role==='admin'? 
+                            isAdmin ? 
                             <Link href={`/${params.hid}/edit`}
                             className="px-6 py-1.5 max-w-28 text-center
                             rounded-full bg-neutral-800 shadow-lg
