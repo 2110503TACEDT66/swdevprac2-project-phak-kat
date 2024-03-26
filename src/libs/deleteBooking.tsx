@@ -1,13 +1,15 @@
+'use server'
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-export default async function getBookings() {
+export default async function deleteBooking(id:string) {
 
     const session = await getServerSession(authOptions);
+    
 
-    const response = await fetch(`https://hotel-backend-beta.vercel.app/api/v1/bookings`, {
-        method: 'GET',
+    const response = await fetch(`https://hotel-backend-beta.vercel.app/api/v1/bookings/${hotelId}`, {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             authorization: `Bearer ${session?.user.token}`
@@ -15,7 +17,7 @@ export default async function getBookings() {
     });
 
     if (!response.ok) {
-        throw new Error("Failed to get booking")
+        throw new Error(`Failed to delete bookings: ${response.statusText}`);
     }
 
     return await response.json();

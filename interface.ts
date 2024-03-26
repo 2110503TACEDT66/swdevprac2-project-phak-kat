@@ -15,15 +15,20 @@ interface HotelItem {
     price: number,
     capacityPerRoom: number,
     rating: number,
-    photoArary: [string],
+    photoArary: string[],
     description: string
 }
-
-export interface BookingItem {
+interface BookingItem {
     _id: string,
     user: string;
-    hotel: string;
+    hotel: HotelItem;
     startTime: Date;
     EndTime: Date;
     createAt: Date;
-  }
+}
+
+interface BookingJson {
+    success: boolean,
+    count: number,
+    data: BookingItem[]
+}

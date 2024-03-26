@@ -9,10 +9,20 @@ export default function BookingForm({hotelName, hotelId, profileName}: {hotelNam
 
     const [reserveStart, setReserveStart] = useState<Dayjs | null>(null);
     const [reserveEnd, setReserveEnd] = useState<Dayjs | null>(null);
-
-    const addBooking = async () => {
-        await createBooking(reserveStart, reserveEnd, hotelId)
-    }
+    
+    const makeBooking = async () => {
+        if (!hotelId || !reserveEnd || !reserveStart) return;
+    
+        try {
+            const startDateTime = reserveStart.toDate();
+            const endDateTime = reserveEnd.toDate();
+    
+            await createBooking(startDateTime, endDateTime, hotelId);
+            console.log("makeBooking success");
+        } catch (error) {
+            console.error("Error making booking:", error);
+        }
+    };
 
     return (
         <form className='flex flex-col w-1/2 space-y-5 justify-center mx-auto'>
@@ -26,7 +36,7 @@ export default function BookingForm({hotelName, hotelId, profileName}: {hotelNam
             </div>
             <div className='mx-auto'>
                 <button type='submit'
-                onClick={addBooking}
+                onClick={makeBooking}
                 className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
                     Book 
                 </button>

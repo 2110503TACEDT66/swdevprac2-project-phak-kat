@@ -1,5 +1,5 @@
 import Link from "next/link";
-import HotelCard from "./HotelCard";
+import HotelCard from "./hotelCard";
 
 export default async function HotelPanel({hotelsJson} : {hotelsJson:HotelJson}) {
     
