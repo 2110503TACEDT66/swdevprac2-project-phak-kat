@@ -14,4 +14,4 @@ export default async function createBooking({reserveStart, reserveEnd, hotelId}:
 
     return await res.json()
 
-  }
+}

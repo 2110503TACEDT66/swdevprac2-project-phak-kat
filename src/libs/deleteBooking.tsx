@@ -8,7 +8,7 @@ export default async function deleteBooking(id:string) {
     const session = await getServerSession(authOptions);
     
 
-    const response = await fetch(`https://hotel-backend-beta.vercel.app/api/v1/bookings/${hotelId}`, {
+    const response = await fetch(`https://hotel-backend-beta.vercel.app/api/v1/bookings/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
