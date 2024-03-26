@@ -1,3 +1,6 @@
+'use client'
+import Image from "next/image";
+import Link from "next/link";
 import BookingCard from "@/components/BookingCard";
 import getBookings from "@/libs/getBookings";
 
@@ -15,5 +18,5 @@ export default async function MyBooking() {
           ))}
         </div>
       </main>
-    );
-}
+  }
+  // <BookingCard params={{id:'string'}}/>
