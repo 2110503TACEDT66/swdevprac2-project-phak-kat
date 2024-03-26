@@ -24,6 +24,9 @@ export default async function BookingCard({booking} : {booking:BookingItem}) {
                         <i style={{fontSize:'18px'}} className="fi fi-sr-phone-call"></i>
                         <div className="text-md font-semibold text-neutral-800 top-0">{booking.hotel.tel}</div>
                     </div>
+                    <div className="flex flex-row space-x-3">
+                        <div className="text-md font-semibold text-neutral-800 top-0">{booking.user}</div>
+                    </div>
                 </div>
 
                 <div className="flex flex-row space-x-4 mr-auto
