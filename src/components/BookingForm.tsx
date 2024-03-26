@@ -1,29 +1,32 @@
+'use client';
 import HotelTextField from '@/components/HotelTextField'
 import DateReserve from './DateReserve';
-import LogInButton from './LogInButton';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import getUserProfile from '@/libs/getUserProfile';
+import { useState } from 'react';
+import { Dayjs } from 'dayjs';
+import createBooking  from '@/libs/createBooking';
 
-export default async function BookingForm({hotelName}: {hotelName: string}) {
-    const session = await getServerSession(authOptions);
-    if (!session) {
-        return null;
+export default function BookingForm({hotelName, hotelId, profileName}: {hotelName: string, hotelId: string, profileName: string}) {
+
+    const [reserveStart, setReserveStart] = useState<Dayjs | null>(null);
+    const [reserveEnd, setReserveEnd] = useState<Dayjs | null>(null);
+
+    const addBooking = async () => {
+        await createBooking(reserveStart, reserveEnd, hotelId)
     }
-    const profile = await getUserProfile(session.user.token);
 
     return (
         <form className='flex flex-col w-1/2 space-y-5 justify-center mx-auto'>
             <div className='flex flex-row justify-between space-x-5'>
-                <HotelTextField value={profile.data.name} type='text' id="name" pText={profile.data.name} lable='username' disable={true}/>
+                <HotelTextField value={profileName} type='text' id="name" pText={profileName} lable='username' disable={true}/>
                 <HotelTextField value={hotelName} type='text' id="hid" pText={hotelName} lable='hotel' disable={true}/>
             </div>
             <div className='flex flex-row justify-between space-x-5'>
-                <DateReserve lable='start'></DateReserve>
-                <DateReserve lable='end'></DateReserve>
+                <DateReserve label='start' onSelectDate={(value: Dayjs) => {setReserveStart(value)}}></DateReserve>
+                <DateReserve label='end' onSelectDate={(value: Dayjs) => {setReserveEnd(value)}}></DateReserve>
             </div>
             <div className='mx-auto'>
                 <button type='submit'
+                onClick={addBooking}
                 className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
                     Book 
                 </button>
