@@ -19,15 +19,15 @@ export default async function MenuBar() {
             </div>
             {
                 session ? 
-                    <Link href='/api/auth/signout'className='ml-4 text-sm font-semibold text-red-500'>
+                    <Link className="bg-gray-300 px-auto py-auto  rounded-lg font-sans hover:bg-gray-600 h-full flex justify-end " href='/api/auth/signout'>
                         Log out
                     </Link>
                     :
                     <div>
-                    <Link href='/api/auth/signin' className='ml-4 text-sm font-semibold text-blue-500'>
+                    <Link href='/api/auth/signin' className="bg-gray-300 px-auto py-auto  rounded-lg font-sans hover:bg-gray-600 h-[50%] flex justify-end px-5" >
                         Log in
                     </Link>
-                    <Link href='/signup' className='ml-4 text-sm font-semibold text-blue-500'>
+                    <Link href='/signup' className="bg-gray-300 px-auto py-auto  rounded-lg font-sans hover:bg-gray-600 h-[50%] flex justify-end px-5" >
                         Sign up
                     </Link>
                     </div>
