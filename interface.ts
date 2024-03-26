@@ -18,3 +18,12 @@ interface HotelItem {
     photoArary: [string],
     description: string
 }
+
+export interface BookingItem {
+    _id: string,
+    user: string;
+    hotel: string;
+    startTime: Date;
+    EndTime: Date;
+    createAt: Date;
+  }
