@@ -1,11 +1,14 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import getHotel from "@/libs/getHotel";
 import { Rating } from "@mui/material";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function HotelDetail({params} : {params:{hid:string}}) {
     
     const hotel = await getHotel(params.hid)
+    const session = await getServerSession(authOptions)
     
     return (
         <main className="p-12 font-sans flex flex-col space-y-5">
@@ -66,17 +69,20 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                         hover:scale-105 hover:text-md">
                             book
                         </Link>
-                        <Link href={`/${params.hid}/edit`}
-                        className="px-6 py-1.5 max-w-28 text-center
-                        rounded-full bg-neutral-800 shadow-lg
-                        text-white text-md font-sans font-normal
-                        transition ease-in-out delay-150 duration-300 
-                        hover:scale-105 hover:text-md">
-                            <div className="flex flex-row space-x-3">
-                                <i style={{'font-size':'18px'}} className="fi fi-sr-file-edit"></i>
-                                <div className="text-md font-semibold text-neutral-100 top-0">edit</div>
-                            </div>
-                        </Link>
+                        {
+                            session?.user.role==='admin'? 
+                            <Link href={`/${params.hid}/edit`}
+                            className="px-6 py-1.5 max-w-28 text-center
+                            rounded-full bg-neutral-800 shadow-lg
+                            text-white text-md font-sans font-normal
+                            transition ease-in-out delay-150 duration-300 
+                            hover:scale-105 hover:text-md">
+                                <div className="flex flex-row space-x-3">
+                                    <i style={{'font-size':'18px'}} className="fi fi-sr-file-edit"></i>
+                                    <div className="text-md font-semibold text-neutral-100 top-0">edit</div>
+                                </div>
+                            </Link> : ''
+                        }
                     </div>
                 </div>
             </div>              
