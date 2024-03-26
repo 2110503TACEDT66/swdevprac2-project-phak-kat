@@ -85,7 +85,7 @@ export default async function HotelDetail({params} : {params:{hid:string}}) {
                             transition ease-in-out delay-150 duration-300 
                             hover:scale-105 hover:text-md">
                                 <div className="flex flex-row space-x-3">
-                                    <i style={{'font-size':'18px'}} className="fi fi-sr-file-edit"></i>
+                                    <i style={{fontSize:'18px'}} className="fi fi-sr-file-edit"></i>
                                     <div className="text-md font-semibold text-neutral-100 top-0">edit</div>
                                 </div>
                             </Link> : ''
