@@ -25,13 +25,10 @@ export default function BookingForm({hotelName, hotelId, profileName}: {hotelNam
     };
 
     return (
-        <form className='flex flex-col w-1/2 space-y-5 justify-center mx-auto'
-        onSubmit={(e)=>{
-            e.preventDefault();
-            makeBooking();}}>
+        <form className='flex flex-col w-1/2 space-y-5 justify-center mx-auto'>
             <div className='flex flex-row justify-between space-x-5'>
-                <HotelTextField value={profileName} type='text' id="name" pText={profileName} lable='username' disable={true}/>
-                <HotelTextField value={hotelName} type='text' id="hid" pText={hotelName} lable='hotel' disable={true}/>
+                <HotelTextField value={profileName} type='text' id="name" pText={profileName} label='username' disable={true}/>
+                <HotelTextField value={hotelName} type='text' id="hid" pText={hotelName} label='hotel' disable={true}/>
             </div>
             <div className='flex flex-row justify-between space-x-5'>
                 <DateReserve label='start' onSelectDate={(value: Dayjs) => {setReserveStart(value)}}></DateReserve>

@@ -1,15 +1,15 @@
 'use client';
 import React, { useState } from 'react';
 
-export default function LogInTextField({id, lable, pText, disable, type, value, }:
-    {id: string ,lable: string, pText: string, disable: boolean, type: string, value: string, }) {
+export default function LogInTextField({id, label, pText, disable, type, value, }:
+    {id: string ,label: string, pText: string, disable: boolean, type: string, value: string, }) {
         const [textValue, setTextValue] = useState(value);
         return (
             <div className="w-full">
                 <label htmlFor={id} 
                 className="block mb-1 
                 text-md font-medium text-neutral-800 font-sans">
-                    {lable}
+                    {label}
                 </label>
                 <input type={type} 
                 id={id}
