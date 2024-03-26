@@ -1,4 +1,4 @@
-export default async function createBooking(reserveStart: Date, reserveEnd: Date, hotelId: string) 
+export default async function createBooking(reserveStart: Date, reserveEnd: Date, hotelId: string, token: string) 
 {
     const data = {
         startTime: reserveStart?.toString(),
@@ -8,6 +8,7 @@ export default async function createBooking(reserveStart: Date, reserveEnd: Date
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
     })

@@ -1,23 +1,29 @@
 'use client';
 import HotelTextField from '@/components/HotelTextField'
 import DateReserve from './DateReserve';
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { Dayjs } from 'dayjs';
 import createBooking  from '@/libs/createBooking';
+import { useSession } from "next-auth/react"
 
 export default function BookingForm({hotelName, hotelId, profileName}: {hotelName: string, hotelId: string, profileName: string}) {
 
     const [reserveStart, setReserveStart] = useState<Dayjs | null>(null);
     const [reserveEnd, setReserveEnd] = useState<Dayjs | null>(null);
     
+    const {data: session} = useSession();
+    if (!session) {
+        return null;
+    }
+
     const makeBooking = async () => {
         if (!hotelId || !reserveEnd || !reserveStart) return;
     
         try {
             const startDateTime = reserveStart.toDate();
             const endDateTime = reserveEnd.toDate();
-    
-            await createBooking(startDateTime, endDateTime, hotelId);
+            
+            await createBooking(startDateTime, endDateTime, hotelId, session.user.token);
             console.log("makeBooking success");
         } catch (error) {
             console.error("Error making booking:", error);
