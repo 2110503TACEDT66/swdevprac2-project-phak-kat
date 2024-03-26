@@ -19,7 +19,7 @@ export default async function Book({params}: {params: {hid: string}}) {
         text-stone-900'>
           Booking
         </h1>
-        <BookingForm hotelName={'name'} hotelId={'params.hid'} profileName={'profile.data.name'}/>
+        <BookingForm hotelName={name} hotelId={params.hid} profileName={profile.data.name}/>
       </main>
     );
 }
