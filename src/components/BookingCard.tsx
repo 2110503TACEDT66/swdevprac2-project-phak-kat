@@ -28,7 +28,7 @@ export default async function BookingCard({booking} : {booking:BookingItem}) {
 
                 <div className="flex flex-row space-x-4 mr-auto
                 lg:flex-col lg:space-y-4 lg:my-auto lg:mr-0 lg:self-center">
-                    <Link href={`/book/${booking.hotel._id}`}>
+                    <Link href={`/updatebook/${booking._id}`}>
                         <div className="px-6 py-1.5 max-w-28 ml-auto text-center
                             rounded-full bg-neutral-800 shadow-lg
                             text-white text-md font-sans font-normal
