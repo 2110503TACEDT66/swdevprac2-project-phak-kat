@@ -2,9 +2,19 @@ import HotelTextField from '@/components/HotelTextField'
 import LogInButton from "@/components/LogInButton";
 import getHotel from '@/libs/getHotel';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default async function EditHotel({params} : {params:{hid:string}}) {
     
+    const [hotelName, setHotelName] = useState<string>('');
+    const [hotelAddress, setHotelAddress] = useState<string>('');
+    const [hotelDistrict, setHotelDistrict] = useState<string>('');
+    const [hotelProvince, setHotelProvince] = useState<string>('');
+    const [hotelTel, setHotelTel] = useState<string>('');
+    const [hotelPrice, setHotelPrice] = useState<string>('');
+    const [hotelCapacity, setHotelCapacity] = useState<string>('');
+    const [hotelDescription, setHotelDescription] = useState<string>('');
+
     const hotel = await getHotel(params.hid)
 
     return (

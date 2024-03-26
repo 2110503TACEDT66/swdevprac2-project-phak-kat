@@ -1,43 +1,56 @@
-import GgLogInButton from "@/components/GgLogInButton";
-import HotelTextField from '@/components/HotelTextField'
+'use client';
+import RegisterText from "@/components/RegisterText";
 import LogInButton from "@/components/LogInButton";
-import Link from "next/link";
+import getHotel from '@/libs/getHotel';
+import Link from 'next/link';
+import { useState } from 'react';
+import userRegister from "@/libs/userRegister";
 
 export default function SignUp() {
+
+    const [profileName, setProfileName] = useState<string>('');
+    const [profileEmail, setProfileEmail] = useState<string>('');
+    const [profilePassword, setProfilePassword] = useState<string>('');
+
+    const makeRegister = async () => {
+        if (!profileName || !profileEmail || !profilePassword) return;
+    
+        try {
+            await userRegister(profileName, profileEmail, profilePassword, 'user');
+            console.log("makeRegister success");
+        } catch (error) {
+            console.error("Error making register:", error);
+        }
+    };
+
     return (
-      <main className="w-full flex flex-col justify-center space-y-6">
-        <h1 className='mx-auto mt-12 text-3xl font-sans font-bold
-        text-stone-900'>
-          Sign Up
-        </h1>
-        <form className="w-full flex flex-col justify-center space-y-6">
-          <div className="w-1/2 mx-auto">
-            <div className="space-y-4">
-              <HotelTextField value='' type='text' id="name" pText='name' label='name' disable={false}/>
-              <HotelTextField value='' type='text' id="email" pText='email' label='email' disable={false}/>
-              <HotelTextField value='' type='password' id="password" pText='password' label='password' disable={false}/>
-              <HotelTextField value='' type='text' id="tel" pText='0xx-xxxxxxx' label='phone number' disable={false}/>
+        <main className="w-full flex flex-col justify-center space-y-6">
+            <h1 className='mx-auto mt-10 text-3xl font-sans font-bold
+            text-stone-900'>
+            Register
+            </h1>
+
+            <form className="w-full flex flex-col justify-center space-y-5">
+                
+                <div className="space-y-3 w-1/2 mx-auto">
+                <RegisterText value={profileName} type='text' id="name" pText={profileName} label='name' disable={false} onChangeText={(value: string) => {setProfileName(value)}}/>
+                <RegisterText value={profileEmail} type='text' id="email" pText={profileEmail} label='eamil' disable={false} onChangeText={(value: string) => {setProfileEmail(value)}}/>
+                <RegisterText value={profilePassword} type='password' id="password" pText={profilePassword} label='password' disable={false} onChangeText={(value: string) => {setProfilePassword(value)}}/>
+                </div>
+                
+                <div className='mx-auto'>
+                <button type='submit'
+                onClick={ (e) =>
+                    {
+                        e.preventDefault();
+                        makeRegister();
+                    }}
+                className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                    submit
+                </button>
             </div>
-            <div className='text-sm font-medium text-neutral-800 font-sans
-            flex flex-row space-x-2 justify-end mt-2'>
-              <h6>Already have an account?</h6>
-              <Link href={'/login'} className="underline hover:italic">
-                Log In
-              </Link>
-            </div>
-          </div>
-          <div className="mx-auto">
-            <LogInButton />
-          </div>
-          <div className="flex flex-row justify-center space-x-4">
-            <hr className="w-48 h-0.5 my-auto bg-neutral-800 border-0 rounded"/>
-            <h6 className='text-sm font-medium text-neutral-800 font-sans'>or</h6>
-            <hr className="w-48 h-0.5 my-auto bg-neutral-800 border-0 rounded"/>
-          </div>
-          <div className="mx-auto">
-            <GgLogInButton/>
-          </div>
-        </form>
-      </main>
+
+            </form>
+        </main>
     );
 }
