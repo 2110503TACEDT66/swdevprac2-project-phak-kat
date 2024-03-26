@@ -5,7 +5,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import getUserProfile from '@/libs/getUserProfile';
 
-export default async function BookingForm() {
+export default async function BookingForm({hotelName}: {hotelName: string}) {
     const session = await getServerSession(authOptions);
     if (!session) {
         return null;
@@ -16,7 +16,7 @@ export default async function BookingForm() {
         <form className='flex flex-col w-1/2 space-y-5 justify-center mx-auto'>
             <div className='flex flex-row justify-between space-x-5'>
                 <HotelTextField value={profile.data.name} type='text' id="name" pText={profile.data.name} lable='username' disable={true}/>
-                <HotelTextField value={profile.data.name} type='text' id="hid" pText={profile.data.name} lable='hotel' disable={true}/>
+                <HotelTextField value={hotelName} type='text' id="hid" pText={hotelName} lable='hotel' disable={true}/>
             </div>
             <div className='flex flex-row justify-between space-x-5'>
                 <DateReserve lable='start'></DateReserve>
