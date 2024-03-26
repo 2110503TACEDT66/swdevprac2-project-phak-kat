@@ -15,7 +15,7 @@ interface HotelItem {
     price: number,
     capacityPerRoom: number,
     rating: number,
-    photoArary: string[],
+    photoArray: string[],
     description: string
 }
 interface BookingItem {
