@@ -1,5 +1,5 @@
 export default async function getUserProfile(token: string) {
-    const response = await fetch('https://hotel-backend-i9e892ytr-tatatitutatuays-projects.vercel.app/api/v1/hotels/auth/me', {
+    const response = await fetch('https://hotel-backend-beta.vercel.app/api/v1/auth/me', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${token}`,

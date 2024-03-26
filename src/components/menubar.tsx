@@ -1,11 +1,11 @@
 'use client';
-import React, { useEffect, useState } from 'react';
 import MenuItem from "./MenuItem";
 import Image from "next/image";
-import { getServerSession } from 'next-auth'
+import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default async function MenuBar() {
-    const session = await getServerSession();
+    const {data: session} = await useSession();
 
     return (
         <div className='w-full h-16 fixed top-0 right-0 left-0 z-50 
@@ -19,14 +19,14 @@ export default async function MenuBar() {
                 <MenuItem title='MyBooking' pageRef='/mybooking'/>
             </div>
             {
-                session ?
-                    <div className='flex flex-row justify-end'>
-                        <MenuItem title='Log In' pageRef='/login'/>
-                    </div> 
+                session ? 
+                    <Link href='/api/auth/signout'className='ml-4 text-sm font-semibold text-red-500'>
+                        Log out
+                    </Link>
                     :
-                    <div className='flex flex-row justify-end'>
-                        <MenuItem title='Log Out' pageRef='/logout'/>
-                    </div>
+                    <Link href='/api/auth/signin' className='ml-4 text-sm font-semibold text-blue-500'>
+                        Log in
+                    </Link>
             }
         </div>
     );
