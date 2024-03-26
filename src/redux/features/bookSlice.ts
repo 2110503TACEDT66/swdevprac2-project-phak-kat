@@ -5,7 +5,12 @@ type BookState = {
     bookItems: BookingItem[]
 }
 
-const initialState:BookState = { bookItems: []}
+const initialState:BookState = { bookItems: [{
+    user: 'popp',
+    hotel: 'kaka',
+    startTime: '21',
+    EndTime:'ss'
+}]}
 
 export const bookSlice = createSlice({
     name: 'booking',
@@ -13,13 +18,16 @@ export const bookSlice = createSlice({
     reducers: {
         addBooking: (state, action:PayloadAction<BookingItem>) =>{
             state.bookItems.push(action.payload)
-            while(state.bookItems.length > 3) {
-                state.bookItems.pop()
-            }
+            // if(state.bookItems.length > 3) {
+            //     state.bookItems.pop()
+            // }
         },
-        removeBooking: (state, action:PayloadAction<string>) =>{
+        removeBooking: (state, action:PayloadAction<BookingItem>) =>{
             const remainItems = state.bookItems.filter(obj =>{
-                return (obj._id !== action.payload)
+                return ((obj.user !== action.payload.user)
+                || (obj.hotel !== action.payload.hotel)
+                || (obj.startTime !== action.payload.startTime)
+                || (obj.EndTime !== action.payload.EndTime))
             })
             state.bookItems = remainItems
         }
