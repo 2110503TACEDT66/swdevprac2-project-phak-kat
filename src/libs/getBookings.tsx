@@ -1,6 +1,6 @@
 export default async function getBookings() {
 
-    const response = await fetch('https://hotel-backend-beta.vercel.app/api/v1/bookings')
+    const response = await fetch('https://hotel-backend-beta.vercel.app/api/v1/bookings', {next: {tags:['bookings']}})
     if(!response.ok) {
         throw new Error('Failed to fetch bookings')
     }

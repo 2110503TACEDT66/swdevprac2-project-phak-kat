@@ -8,6 +8,10 @@ import { BookingItem } from '../../interface';
 import dayjs from 'dayjs';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
+import { dbConnect } from '@/db/db.Connect';
+import Booking from '@/db/models/Booking';
+import { revalidateTag } from 'next/cache';
+import { redirect } from 'next/dist/server/api-utils';
 
 export default function BookingForm({hotelName, hotelId, profileName}: {hotelName: string, hotelId: string, profileName: string}) {
 
@@ -27,11 +31,14 @@ export default function BookingForm({hotelName, hotelId, profileName}: {hotelNam
         }
     }
 
+
     return (
-        <form className='flex flex-col w-1/2 space-y-5 justify-center mx-auto'
+        <form
+        className='flex flex-col w-1/2 space-y-5 justify-center mx-auto'
         onSubmit={(e)=>{
             e.preventDefault();
-            makeBooking();}}>
+            makeBooking();
+        }}>
             <div className='flex flex-row justify-between space-x-5'>
                 <HotelTextField value={profileName} type='text' id="name" pText={profileName} lable='username' disable={true}/>
                 <HotelTextField value={hotelName} type='text' id="hid" pText={hotelName} lable='hotel' disable={true}/>

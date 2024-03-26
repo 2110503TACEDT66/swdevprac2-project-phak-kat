@@ -1,11 +1,11 @@
-'use client';
 import MenuItem from "./MenuItem";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 
 export default async function MenuBar() {
-    const {data: session} = await useSession();
+    const session = await getServerSession();
 
     return (
         <div className='w-full h-16 fixed top-0 right-0 left-0 z-50 

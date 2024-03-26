@@ -12,6 +12,8 @@ export default function Book({params}: {params: {hid: string}}) {
     // const profile = await getUserProfile(session.user.token);
     // const hotel = await getHotel(params.hid);
     // const name = hotel.data.name;
+
+    
     
     return (
       <main className="w-full flex flex-col justify-center">
