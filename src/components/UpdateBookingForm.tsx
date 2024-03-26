@@ -19,7 +19,7 @@ export default function UpdateBookingForm({bookId, profileName}: {bookId: string
 
     const updateBookingClick = async () => {
         if (!bookId || !reserveEnd || !reserveStart) return;
-    
+        
         try {
             const startDateTime = reserveStart.toDate();
             const endDateTime = reserveEnd.toDate();

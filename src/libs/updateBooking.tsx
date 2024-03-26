@@ -10,8 +10,8 @@ export default async function updateBooking(startTime : Date , endTime : Date, i
             authorization: `Bearer ${token}`
         },
         body: JSON.stringify({
-            startDate: startTime,
-            endDate: endTime
+            startTime: startTime,
+            endTime: endTime
         })
     });
 
