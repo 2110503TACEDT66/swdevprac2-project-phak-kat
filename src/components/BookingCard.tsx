@@ -13,15 +13,15 @@ export default async function BookingCard({booking} : {booking:BookingItem}) {
             lg:flex-row lg:justify-between">
                 <div className="lg:self-center">
                     <div className="flex flex-row space-x-3">
-                        <i style={{'font-size':'25px'}} className="fi fi-sr-building"></i>
+                        <i style={{fontSize:'25px'}} className="fi fi-sr-building"></i>
                         <div className="text-2xl font-semibold text-neutral-800 top-0">{booking.hotel.name}</div>
                     </div>
                     <div className="flex flex-row space-x-3">
-                        <i style={{'font-size':'18px'}} className="fi fi-sr-calendar-day"></i>
+                        <i style={{fontSize:'18px'}} className="fi fi-sr-calendar-day"></i>
                         <div className="text-md font-semibold text-neutral-800 top-0">{booking.startTime.toString()}</div>
                     </div>
                     <div className="flex flex-row space-x-3">
-                        <i style={{'font-size':'18px'}} className="fi fi-sr-phone-call"></i>
+                        <i style={{fontSize:'18px'}} className="fi fi-sr-phone-call"></i>
                         <div className="text-md font-semibold text-neutral-800 top-0">{booking.hotel.tel}</div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ export default async function BookingCard({booking} : {booking:BookingItem}) {
                             transition ease-in-out delay-150 duration-300 
                             hover:scale-105 hover:text-md">
                             <div className="flex flex-row space-x-3">
-                                <i style={{'font-size':'18px'}} className="fi fi-sr-file-edit"></i>
+                                <i style={{fontSize:'18px'}} className="fi fi-sr-file-edit"></i>
                                 <div className="text-md font-semibold text-neutral-100 top-0">edit</div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ export default async function BookingCard({booking} : {booking:BookingItem}) {
                         transition ease-in-out delay-150 duration-300 
                         hover:scale-105 hover:text-md">
                         <div className="flex flex-row space-x-3">
-                            <i style={{'font-size':'18px'}} className="fi fi-sr-trash"></i>
+                            <i style={{fontSize:'18px'}} className="fi fi-sr-trash"></i>
                             <div className="text-md font-semibold text-neutral-100 top-0">delete</div>
                         </div>
                     </div>
