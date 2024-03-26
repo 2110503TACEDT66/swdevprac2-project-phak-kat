@@ -23,9 +23,14 @@ export default async function MenuBar() {
                         Log out
                     </Link>
                     :
+                    <div>
                     <Link href='/api/auth/signin' className='ml-4 text-sm font-semibold text-blue-500'>
                         Log in
                     </Link>
+                    <Link href='/signup' className='ml-4 text-sm font-semibold text-blue-500'>
+                        Sign up
+                    </Link>
+                    </div>
             }
         </div>
     );
