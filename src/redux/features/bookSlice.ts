@@ -12,10 +12,10 @@ export const bookSlice = createSlice({
     initialState,
     reducers: {
         addBooking: (state, action:PayloadAction<BookingItem>) =>{
-            if(state.bookItems.length == 3) {
-                state.bookItems.shift()
-            }
             state.bookItems.push(action.payload)
+            while(state.bookItems.length > 3) {
+                state.bookItems.pop()
+            }
         },
         removeBooking: (state, action:PayloadAction<string>) =>{
             const remainItems = state.bookItems.filter(obj =>{
