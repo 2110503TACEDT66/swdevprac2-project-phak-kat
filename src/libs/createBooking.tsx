@@ -1,4 +1,4 @@
-export default async function createBooking(reserveStart:Date, reserveEnd:Date, hotelId:string) 
+export default async function createBooking(reserveStart: Date, reserveEnd: Date, hotelId: string) 
 {
     const data = {
         startTime: reserveStart?.toString(),
