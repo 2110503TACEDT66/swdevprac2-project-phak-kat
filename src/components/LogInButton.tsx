@@ -11,7 +11,7 @@ export default function LogInButton() {
             email: (document.getElementById('email') as HTMLInputElement).value,
             password: (document.getElementById('password') as HTMLInputElement).value,
             redirect: true,
-            callbackUrl: 'http://localhost:3000/'
+            callbackUrl: '/'
         });
     }
 
