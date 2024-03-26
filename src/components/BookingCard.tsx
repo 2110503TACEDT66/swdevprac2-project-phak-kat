@@ -40,6 +40,7 @@ export default async function BookingCard({booking} : {booking:BookingItem}) {
                             </div>
                         </div>
                     </Link>
+                    <Link href={`/deletebook/${booking._id}`}>
                     <div className="px-6 py-1.5 max-w-28 ml-auto text-center
                         rounded-full bg-neutral-800 shadow-lg
                         text-white text-md font-sans font-normal
@@ -50,6 +51,7 @@ export default async function BookingCard({booking} : {booking:BookingItem}) {
                             <div className="text-md font-semibold text-neutral-100 top-0">delete</div>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
             </div>

@@ -1,18 +1,10 @@
-'use server'
-
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-
-export default async function deleteBooking(id:string) {
-
-    const session = await getServerSession(authOptions);
-    
+export default async function deleteBooking(id:string, token: string) {
 
     const response = await fetch(`https://hotel-backend-beta.vercel.app/api/v1/bookings/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
-            authorization: `Bearer ${session?.user.token}`
+            authorization: `Bearer ${token}`
         }
     });
 

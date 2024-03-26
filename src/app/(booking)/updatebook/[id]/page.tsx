@@ -1,10 +1,10 @@
+import UpdateBookingForm from '@/components/UpdateBookingForm';
+import getHotel from '@/libs/getHotel'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import getUserProfile from '@/libs/getUserProfile';
 import { getServerSession } from 'next-auth';
-import UpdateBookingForm from '@/components/UpdateBookingForm';
-import getBooking from '@/libs/getBooking';
 
-export default async function Book({params}: {params: {id: string}}) {
+export default async function UpdateBook({params}: {params: {id: string}}) {
     const session = await getServerSession(authOptions);
     if (!session) {
         return null;
@@ -17,7 +17,7 @@ export default async function Book({params}: {params: {id: string}}) {
         text-stone-900'>
           Booking
         </h1>
-        <UpdateBookingForm bookId={params.id} profileName={profile.data.name}/>
+        <UpdateBookingForm  bookId={params.id} profileName={profile.data.name}/>
       </main>
     );
 }
