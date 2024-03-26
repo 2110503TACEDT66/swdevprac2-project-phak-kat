@@ -27,7 +27,7 @@ export default function SignUp() {
             </div>
           </div>
           <div className="mx-auto">
-            <LogInButton buttonText="sing up"/>
+            <LogInButton />
           </div>
           <div className="flex flex-row justify-center space-x-4">
             <hr className="w-48 h-0.5 my-auto bg-neutral-800 border-0 rounded"/>
