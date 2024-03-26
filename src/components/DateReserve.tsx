@@ -3,11 +3,17 @@ import { DatePicker } from '@mui/x-date-pickers';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Dayjs } from 'dayjs';
-import React from 'react';
+import React, { use } from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function DateReserve({ label, onSelectDate }: { label: string; onSelectDate:Function }) {
-    const [reserveDate, setReserveDate] = useState<Dayjs | null>(null);
+    const [reserveDate, setReserveDate] = React.useState<Dayjs | null>(null);
+    console.log(`reserveDate: ${reserveDate}`);
+    React.useEffect(() => {
+        onSelectDate(reserveDate);
+
+    },[reserveDate, onSelectDate])
     console.log(`reserveDate: ${reserveDate}`);
     return (
         <div className="w-full">
