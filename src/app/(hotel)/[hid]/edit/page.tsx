@@ -29,7 +29,7 @@ export default async function EditHotel({params} : {params:{hid:string}}) {
                 
                 <div className="mx-auto">
                     <Link href={`/${params.hid}`}>
-                        <LogInButton buttonText="edit"/>
+                        <LogInButton />
                     </Link>
                 </div>
 
