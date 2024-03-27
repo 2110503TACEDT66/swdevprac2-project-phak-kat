@@ -1,16 +1,16 @@
 import '@testing-library/jest-dom'
-import getHospital from '@/libs/getHospital'
+import getHotel from '@/libs/getHotel'
 
-describe('Get Hospital by ID', () => {
-  var hospitalByIdPromise:Promise<Object>
-  var hospitalJsonResult:Object
+describe('Get Hotel by ID', () => {
+  var hotelByIdPromise:Promise<Object>
+  var hotelJsonResult:Object
   beforeEach(async () => {
-    hospitalByIdPromise = getHospital('651fad5f05c6b313f8dfb1e5')
-    hospitalJsonResult = await hospitalByIdPromise
+    hotelByIdPromise = getHotel('66034a90444832000d483982')
+    hotelJsonResult = await hotelByIdPromise
   })
 
   it('getHospital must return correct result', () => {
-    const resultData = hospitalJsonResult.data
-    expect(resultData.name).toMatch(/Chulalongkorn Hospital/i) 
+    const resultData = hotelJsonResult.data
+    expect(resultData.name).toMatch(/Sunset is good/i) 
   })
 })

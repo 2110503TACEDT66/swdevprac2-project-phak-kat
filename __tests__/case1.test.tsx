@@ -1,34 +1,19 @@
 import '@testing-library/jest-dom'
-import getHospitals from '@/libs/getHospitals'
-import HospitalCatalog from '@/components/HospitalCatalog'
-import { screen, render, waitFor } from '@testing-library/react'
+import getHotels from '@/libs/getHotels'
 
 describe('Get Hospitals', () => {
-  var hospitalPromise:Promise<Object>
-  var hospitalsJsonResult:Object
+  var hotelPromise: Promise<HotelJson>
+  var hostelsJsonResult: HotelJson
   beforeEach(async () => {
-    hospitalPromise = getHospitals()
-    hospitalsJsonResult = await hospitalPromise
+    hotelPromise = getHotels()
+    hostelsJsonResult = await hotelPromise
   })
 
   it('getHospitals must return correct results', () => {
-    const resultData = hospitalsJsonResult.data
-    expect(hospitalsJsonResult.count).toBe(3) 
-    expect(resultData).toHaveLength(3)
-    const ids = ["651faed405c6b313f8dfb1eb", "651fad5f05c6b313f8dfb1e5", "651fae4b05c6b313f8dfb1e8"]
-    expect(ids).toContain(resultData[0].id)  
+    const resultData = hostelsJsonResult.data
+    expect(hostelsJsonResult.count).toBe(4) 
+    expect(resultData).toHaveLength(4)
+    const ids = ["66034790303118bdb6b19859", "66034a90444832000d483982", "66003c4d4079a0ac5ab51af7", "66034971303118bdb6b19876"]
+    expect(ids).toContain(resultData[0]._id)  
   })
-
-  it('Hospital Catalog should have correct number of images', async () => {
-    const catalog = await HospitalCatalog({hospitalsJson: hospitalsJsonResult})
-    render(catalog) 
-    
-    await waitFor(()=> {
-      const hospitalImages = screen.queryAllByRole('img')
-      expect(hospitalImages.length).toBe(3)
-    })
-    
-  })
-  
-  
 })
