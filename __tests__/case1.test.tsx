@@ -10,7 +10,7 @@ describe('Get Hotels', () => {
     console.log(hostelsJsonResult)
   })
 
-  it('getHospitals must return correct results', () => {
+  it('getHotels must return correct results', () => {
     const resultData = hostelsJsonResult.data
     expect(hostelsJsonResult.count).toBe(4) 
     expect(resultData).toHaveLength(4)
