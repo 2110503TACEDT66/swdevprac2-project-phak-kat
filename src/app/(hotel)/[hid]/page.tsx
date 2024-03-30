@@ -5,7 +5,7 @@ import { Rating } from "@mui/material";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
-
+    
 export default async function HotelDetail({params} : {params:{hid:string}}) {
     
     if (params.hid == 'favicon.ico') return null

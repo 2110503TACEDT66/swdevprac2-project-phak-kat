@@ -9,7 +9,7 @@ describe('Get Hotel by ID', () => {
     hotelJsonResult = await hotelByIdPromise
   })
 
-  it('getHospital must return correct result', () => {
+  it('getHotel must return correct result', () => {
     const resultData = hotelJsonResult.data
     expect(resultData.name).toMatch(/Sunset is good/i) 
   })

@@ -1,12 +1,13 @@
 import '@testing-library/jest-dom'
 import getHotels from '@/libs/getHotels'
 
-describe('Get Hospitals', () => {
+describe('Get Hotels', () => {
   var hotelPromise: Promise<HotelJson>
   var hostelsJsonResult: HotelJson
   beforeEach(async () => {
     hotelPromise = getHotels()
     hostelsJsonResult = await hotelPromise
+    console.log(hostelsJsonResult)
   })
 
   it('getHospitals must return correct results', () => {
